@@ -1,16 +1,16 @@
 import checkNumInputs from './checkNumInputs';
 
-const changeModalState = (state) => {
+const changeModalState = (state) => { //получаем данные со страницы
     const windowForm = document.querySelectorAll('.button_icons_img'),
           windowWidth = document.querySelectorAll('#width'),
           windowHeight = document.querySelector('#height'),
           windowType = document.querySelector('#view_type'),
           windowProfile = document.querySelectorAll('.checbox');
-
+//валидируем
     checkNumInputs('#width');
     checkNumInputs('#height');
 
-    function bindActionToElems (event, elem, prop) {
+    function bindActionToElems (event, elem, prop) { //создаём функцию которая на элемент навязывает обработчик события
         elem.forEach((item, i) => {
             item.addEventListener(event, () => {
                 switch(item.nodeName) {
@@ -39,7 +39,7 @@ const changeModalState = (state) => {
             });
         });
     }
-
+//привязываем действия к определённым элементом с определёнными событиями
     bindActionToElems('click', windowForm, 'form');
     bindActionToElems('input', windowHeight, 'height');
     bindActionToElems('input', windowWidth, 'width');
